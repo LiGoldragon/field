@@ -8,8 +8,8 @@ const root = fs.mkdtempSync(path.join(os.tmpdir(), 'field-luna-research-'));
 const state = path.join(root, 'state');
 const run = () => spawnSync(process.execPath, [path.join(repo, 'bin/field-luna-research.mjs'), '--once', '--state-dir', state, '--runner', path.join(repo, 'test/fake-codex.mjs')], {encoding: 'utf8', env: {...process.env, FIELD_PRIMARY_ROOT: '/home/li/primary'}});
 try {
-  for (let index = 0; index < 4; index++) { const result = run(); assert.equal(result.status, 0, result.stderr); assert.equal(JSON.parse(result.stdout).outcome, 'completed'); }
+  for (let index = 0; index < 6; index++) { const result = run(); assert.equal(result.status, 0, result.stderr); assert.equal(JSON.parse(result.stdout).outcome, 'completed'); }
   const skipped = run(); assert.equal(skipped.status, 0, skipped.stderr); assert.equal(JSON.parse(skipped.stdout).outcome, 'skipped-unchanged');
-  const files = fs.readdirSync(path.join(state, 'receipts')); assert.equal(files.length, 4);
+  const files = fs.readdirSync(path.join(state, 'receipts')); assert.equal(files.length, 6);
   console.log('field Luna research loop fixtures passed');
 } finally { fs.rmSync(root, {recursive: true, force: true}); }

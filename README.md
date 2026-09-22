@@ -7,7 +7,9 @@ the existing Primary Field tools.  It does not own flow lifecycle actions.
 Field tool surface, passive census state, Codex session index, and the
 content-addressed prompt archive interface.
 
-`bin/field-luna-research.mjs --once` rotates four source-code questions.  A
+`bin/field-luna-research.mjs --once` rotates six source-code questions covering
+session inventory, census, archive retrieval, transcript behaviour, disposable
+Herdr fixtures, and OpenCode source availability. A
 question runs at most once for a given source digest; after all questions are
 complete it exits with `skipped-unchanged` and does not start a model.  When it
 does run, it invokes an ephemeral `gpt-5.6-luna` worker at medium effort in a

@@ -13,14 +13,16 @@ const stateDir = path.resolve(option('--state-dir') || path.join(process.env.XDG
 const runner = option('--runner') || 'codex';
 const now = new Date().toISOString();
 const questions = [
+  {id: 'session-inventory', text: 'Inspect session inventory locators in Field source, including local Codex index/rollout paths and any remote locator references. Describe only observable evidence and any unavailable remote boundary.'},
   {id: 'census-boundaries', text: 'Inspect passive Field census and checkup source. State exactly which reads happen and identify boundaries that prevent lifecycle mutation.'},
-  {id: 'archive-contract', text: 'Inspect prompt-archive source and tests. Describe content-addressed operations, verification, and whether any deletion/pruning exists.'},
+  {id: 'archive-retrieval-trace', text: 'Inspect prompt-archive source and tests. Describe content-addressed materialize/get/info/verify operations, retrieval trace evidence, and whether any deletion/pruning exists.'},
+  {id: 'transcript-behavior', text: 'Inspect transcript locator and census source. Describe how Codex and Claude transcript paths are inferred, and identify any uncertain or unavailable cases without opening or changing session state.'},
   {id: 'herdr-fixture', text: 'Inspect the existing Field source and Herdr CLI help. Propose one disposable, proven-cleanup fixture experiment; do not run any production Herdr action.'},
   {id: 'opencode-availability', text: 'Inspect source references to OpenCode and local binary availability. Record a safe research boundary and whether an offline fixture is possible.'},
 ];
 const sources = [
   'tools/field-census.mjs', 'tools/field-checkup-shadow.mjs', 'tools/prompt-archive.py',
-  'tools/test_prompt_archive.py', 'tools/field-luna-heartbeat.mjs', 'tools/third-seat/provider-run.mjs',
+  'tools/test_prompt_archive.py', 'tools/field-luna-heartbeat.mjs', 'tools/field-census/codex-context.mjs', 'tools/third-seat/provider-run.mjs',
 ];
 const sha = file => { try { return crypto.createHash('sha256').update(fs.readFileSync(path.join(primary, file))).digest('hex'); } catch { return 'absent'; } };
 const sourceDigest = crypto.createHash('sha256').update(sources.map(file => `${file}:${sha(file)}`).join('\n')).digest('hex');
