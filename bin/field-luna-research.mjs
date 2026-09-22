@@ -12,6 +12,9 @@ const primary = path.resolve(process.env.FIELD_PRIMARY_ROOT || '/home/li/primary
 const stateDir = path.resolve(option('--state-dir') || path.join(process.env.XDG_STATE_HOME || path.join(os.homedir(), '.local/state'), 'field-luna-research'));
 const runner = option('--runner') || 'codex';
 const now = new Date().toISOString();
+const startedAt = Date.now();
+const timeoutMilliseconds = Math.min(600_000, Math.max(1, Number(process.env.FIELD_LUNA_TIMEOUT_MS || 600_000)));
+const cycleTtlMilliseconds = 7 * 24 * 60 * 60 * 1000;
 const questions = [
   {id: 'session-inventory', text: 'Inspect session inventory locators in Field source, including local Codex index/rollout paths and any remote locator references. Describe only observable evidence and any unavailable remote boundary.'},
   {id: 'census-boundaries', text: 'Inspect passive Field census and checkup source. State exactly which reads happen and identify boundaries that prevent lifecycle mutation.'},
@@ -25,39 +28,48 @@ const sources = [
   'tools/test_prompt_archive.py', 'tools/field-luna-heartbeat.mjs', 'tools/field-census/codex-context.mjs', 'tools/third-seat/provider-run.mjs',
 ];
 const sha = file => { try { return crypto.createHash('sha256').update(fs.readFileSync(path.join(primary, file))).digest('hex'); } catch { return 'absent'; } };
-const sourceDigest = crypto.createHash('sha256').update(sources.map(file => `${file}:${sha(file)}`).join('\n')).digest('hex');
+const sourceDigest = crypto.createHash('sha256').update(JSON.stringify({sources: sources.map(file => [file, sha(file)]), questions, version: 2})).digest('hex');
 fs.mkdirSync(path.join(stateDir, 'receipts'), {recursive: true, mode: 0o700});
+const lockFile = path.join(stateDir, 'cycle.lock');
+try { fs.writeFileSync(lockFile, String(process.pid), {flag: 'wx', mode: 0o600}); }
+catch (error) { if (error.code === 'EEXIST') { console.error('another Field Luna research attempt is active'); process.exit(1); } throw error; }
+process.on('exit', () => { try { fs.unlinkSync(lockFile); } catch {} });
 const stateFile = path.join(stateDir, 'state.json');
-let state = {version: 1, completed: {}};
+let state = {version: 2, completed: {}};
 try { state = JSON.parse(fs.readFileSync(stateFile, 'utf8')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
-const completed = state.completed?.[sourceDigest] || [];
+const prior = state.completed?.[sourceDigest] || {questions: [], expires_at: null};
+const completed = Date.parse(prior.expires_at || '') > startedAt ? prior.questions : [];
 const question = questions.find(item => !completed.includes(item.id));
 const write = (file, value) => { const temp = `${file}.${process.pid}.tmp`; fs.writeFileSync(temp, `${JSON.stringify(value)}\n`, {mode: 0o600}); fs.renameSync(temp, file); };
 if (!question) {
-  const receipt = {version: 1, at: now, outcome: 'skipped-unchanged', source_digest: sourceDigest, completed_questions: completed};
+  const receipt = {version: 2, at: now, outcome: 'skipped-unchanged', source_digest: sourceDigest, completed_questions: completed, retry_after: prior.expires_at};
   write(path.join(stateDir, 'latest.json'), receipt); console.log(JSON.stringify(receipt)); process.exit(0);
 }
 const prompt = [
   'You are an ephemeral research worker. You have no Flow identity.',
-  'Read only the listed Primary source files. Do not change files, invoke Herdr, send messages, create sessions, archive/delete data, or make network requests.',
+  'Read only relevant files beneath the Primary tools directory and the named source list. You may run only `herdr --help` and `command -v opencode` as bounded local availability probes. Do not change files, invoke a Herdr action, send messages, create sessions, archive/delete data, or make network requests.',
   `Question: ${question.text}`,
   `Primary root: ${primary}`,
   `Sources: ${sources.join(', ')}`,
   'Return a compact evidence report with source paths and a conclusion. If evidence is absent, say so.',
 ].join('\n');
-const output = path.join(stateDir, 'worker-last-message.txt');
-const result = spawnSync(runner, ['exec', '--ephemeral', '--sandbox', 'read-only', '--model', 'gpt-5.6-luna', '-c', 'model_reasoning_effort="medium"', '-C', primary, '--output-last-message', output, prompt], {encoding: 'utf8', timeout: 600_000, maxBuffer: 1_048_576});
+const attemptId = `${now.replaceAll(/[:.]/g, '-')}-${question.id}`;
+const output = path.join(stateDir, 'receipts', `${attemptId}.md`);
+const result = spawnSync(runner, ['exec', '--ephemeral', '--sandbox', 'read-only', '--model', 'gpt-5.6-luna', '-c', 'model_reasoning_effort="medium"', '-C', primary, '--output-last-message', output, prompt], {encoding: 'utf8', timeout: timeoutMilliseconds, maxBuffer: 1_048_576});
+let report = null;
+try { const stat = fs.statSync(output); if (stat.size > 0 && stat.mtimeMs >= startedAt) report = {path: output, sha256: crypto.createHash('sha256').update(fs.readFileSync(output)).digest('hex'), bytes: stat.size}; } catch { /* A missing/stale/empty report cannot complete research. */ }
+const succeeded = !result.error && !result.signal && result.status === 0 && report !== null;
 const receipt = {
-  version: 1, at: now, outcome: result.error ? 'runner-error' : result.status === 0 ? 'completed' : 'runner-failed',
+  version: 2, at: now, outcome: succeeded ? 'completed' : 'retryable-failure',
   question: question.id, source_digest: sourceDigest, runner, model: 'gpt-5.6-luna', effort: 'medium',
-  ephemeral: true, sandbox: 'read-only', timeout_seconds: 600,
-  exit_status: result.status, error: result.error ? String(result.error.message) : null,
+  ephemeral: true, sandbox: 'read-only', timeout_seconds: timeoutMilliseconds / 1000,
+  exit_status: result.status, signal: result.signal, error: result.error ? String(result.error.message) : null,
   stdout_sha256: crypto.createHash('sha256').update(result.stdout || '').digest('hex'),
-  worker_report_sha256: fs.existsSync(output) ? crypto.createHash('sha256').update(fs.readFileSync(output)).digest('hex') : null,
+  worker_report: report,
 };
-if (receipt.outcome === 'completed') state.completed = {...state.completed, [sourceDigest]: [...completed, question.id]};
+if (succeeded) state.completed = {...state.completed, [sourceDigest]: {questions: [...completed, question.id], expires_at: new Date(startedAt + cycleTtlMilliseconds).toISOString()}};
 write(stateFile, state);
 write(path.join(stateDir, 'latest.json'), receipt);
-write(path.join(stateDir, 'receipts', `${now.replaceAll(/[:.]/g, '-')}-${question.id}.json`), receipt);
+write(path.join(stateDir, 'receipts', `${attemptId}.json`), receipt);
 console.log(JSON.stringify(receipt));
-process.exit(result.status || 0);
+process.exit(succeeded ? 0 : 1);
