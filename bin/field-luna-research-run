@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+repo_dir=$(cd -- "$(dirname -- "$0")/.." && pwd)
+state_dir=${XDG_STATE_HOME:-"$HOME/.local/state"}/field-luna-research
+arguments=("$@")
+for ((index=0; index < ${#arguments[@]}; index++)); do
+  if [[ ${arguments[index]} == --state-dir ]] && (( index + 1 < ${#arguments[@]} )); then state_dir=${arguments[index + 1]}; fi
+done
+mkdir -p -- "$state_dir"
+exec 9>"$state_dir/cycle.lock"
+if ! flock -n 9; then
+  printf '%s\n' 'another Field Luna research attempt is active' >&2
+  exit 1
+fi
+exec /home/li/.nix-profile/bin/node "$repo_dir/bin/field-luna-research.mjs" "$@"

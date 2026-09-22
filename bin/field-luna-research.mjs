@@ -25,15 +25,13 @@ const questions = [
 ];
 const sources = [
   'tools/field-census.mjs', 'tools/field-checkup-shadow.mjs', 'tools/prompt-archive.py',
-  'tools/test_prompt_archive.py', 'tools/field-luna-heartbeat.mjs', 'tools/field-census/codex-context.mjs', 'tools/third-seat/provider-run.mjs',
+  'tools/test_prompt_archive.py', 'tools/field-luna-heartbeat.mjs', 'tools/field-census/codex-context.mjs', 'tools/third-seat/provider-run.mjs', 'tools/third-seat/README.md',
 ];
 const sha = file => { try { return crypto.createHash('sha256').update(fs.readFileSync(path.join(primary, file))).digest('hex'); } catch { return 'absent'; } };
-const sourceDigest = crypto.createHash('sha256').update(JSON.stringify({sources: sources.map(file => [file, sha(file)]), questions, version: 2})).digest('hex');
+const version = executable => { const result = spawnSync(executable, ['--version'], {encoding: 'utf8', timeout: 5000}); return result.status === 0 ? (result.stdout || '').trim() : 'unavailable'; };
+const sourceStates = sources.map(file => [file, sha(file)]);
+const sourceDigest = crypto.createHash('sha256').update(JSON.stringify({sources: sourceStates, tools: {herdr: version('herdr'), opencode: version('opencode')}, questions, version: 3})).digest('hex');
 fs.mkdirSync(path.join(stateDir, 'receipts'), {recursive: true, mode: 0o700});
-const lockFile = path.join(stateDir, 'cycle.lock');
-try { fs.writeFileSync(lockFile, String(process.pid), {flag: 'wx', mode: 0o600}); }
-catch (error) { if (error.code === 'EEXIST') { console.error('another Field Luna research attempt is active'); process.exit(1); } throw error; }
-process.on('exit', () => { try { fs.unlinkSync(lockFile); } catch {} });
 const stateFile = path.join(stateDir, 'state.json');
 let state = {version: 2, completed: {}};
 try { state = JSON.parse(fs.readFileSync(stateFile, 'utf8')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
@@ -41,6 +39,11 @@ const prior = state.completed?.[sourceDigest] || {questions: [], expires_at: nul
 const completed = Date.parse(prior.expires_at || '') > startedAt ? prior.questions : [];
 const question = questions.find(item => !completed.includes(item.id));
 const write = (file, value) => { const temp = `${file}.${process.pid}.tmp`; fs.writeFileSync(temp, `${JSON.stringify(value)}\n`, {mode: 0o600}); fs.renameSync(temp, file); };
+const missingSources = sourceStates.filter(([, state]) => state === 'absent').map(([file]) => file);
+if (missingSources.length) {
+  const receipt = {version: 3, at: now, outcome: 'blocked-missing-source', source_digest: sourceDigest, missing_sources: missingSources};
+  write(path.join(stateDir, 'latest.json'), receipt); console.log(JSON.stringify(receipt)); process.exit(1);
+}
 if (!question) {
   const receipt = {version: 2, at: now, outcome: 'skipped-unchanged', source_digest: sourceDigest, completed_questions: completed, retry_after: prior.expires_at};
   write(path.join(stateDir, 'latest.json'), receipt); console.log(JSON.stringify(receipt)); process.exit(0);

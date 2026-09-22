@@ -30,8 +30,8 @@ For manual inspection:
 
 ```
 node bin/field-readiness.mjs
-node bin/field-luna-research.mjs --once
-node bin/field-luna-research.mjs --state-dir /tmp/field-luna-test --once --runner ./test/fake-codex.mjs
+bin/field-luna-research-run --once
+bin/field-luna-research-run --state-dir /tmp/field-luna-test --once --runner ./test/fake-codex.mjs
 ```
 
 The supplied `systemd/user` units are installation artifacts only. They are
