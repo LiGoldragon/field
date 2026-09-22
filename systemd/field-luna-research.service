@@ -1,0 +1,8 @@
+[Unit]
+Description=Bounded read-only Field Luna source research
+
+[Service]
+Type=oneshot
+WorkingDirectory=/git/github.com/LiGoldragon/field
+Environment=FIELD_PRIMARY_ROOT=/home/li/primary
+ExecStart=/usr/bin/env node bin/field-luna-research.mjs --once
