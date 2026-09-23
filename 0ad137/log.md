@@ -1,0 +1,13 @@
+# Field High 0ad137
+
+## 2026-09-23 — Field record root and addressing correction
+
+Future records now live in the Field repository at top-level `0ad137`, visible through Primary's existing `field` mount. The existing Primary `flows/0ad137` records remain historical and were not moved. The living's exact current words are retained in `vision/flowAnatomyAndOpusPeers.md`, `vision/aspectStatus.md`, and `vision/mainFlowAddressing.md`.
+
+The living clarified that addressing Terra, Luna, or low power usually means the other native main flow within the current aspect. This flow had mistakenly assigned the explicit Terra work to collaboration subflows. Those status-tool and Psyche rename/launch assignments were stopped before edits or reservations; they are pending transfer to the actual native Field Low main. Internal bounded workers are not equivalent to that main. The loaded main-flow wording “Use Terra for implementation when appropriate and authorized by the seat's model rules” lacked this addressing distinction; authored skill correction and propagation remain pending.
+
+Claude Code source is updated to 2.1.280 in Home revision a2358ef3cf8c091eae1c11771a31407e4505bdd8, with direct remote verification returned by the source worker. Field Medium 753e69 pushed the CriomOS input pin as cef111108623617987b6e366ccbe4176c093d6b5, according to native progress evidence read by the route worker. Local deployment is not witnessed: configured Prometheus builder SSH timed out via both Yggdrasil and the documented direct USB endpoint. The remote-only build instruction remains binding; an explicit one-time local-build exception was asked and remains unanswered. Optional tests were stopped per the living. The remote server was not changed.
+
+The latest living ruling retains Opus 4.6 as OldOpus and requests a new default Opus 5.5 main with remote control from startup, equal authority, shared incoming messages and direct peer coordination. This supersedes the earlier request to replace every Opus 4.6 selection. Read-only investigation found two possible Medium 4.6 seats, b80e55 and e88ca4; the living was asked which should receive OldOpus. Neither has been renamed or retired. Psyche High Fable seats and their no-input holds remain distinct.
+
+Current owner records report Field Medium succession from 753e69 to eb7bae; a fresh live binding is still being reconciled. Root 6fb948 controller lock 4639 remains untouched. This flow has no controller reservation or transfer. A clean Astra-medium context refresh is authorized and its bounded launcher preparation is delegated; no successor thread is launched yet.
