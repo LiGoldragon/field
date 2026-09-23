@@ -2,7 +2,7 @@
   "version": 2,
   "seat": "field-astra-of-0ad137",
   "cwd": "/home/li/primary",
-  "claimRoot": "field",
+  "claimRoot": "/git/github.com/LiGoldragon/field",
   "provisionalTitle": "Field High (claim pending)",
   "canonicalRole": {
     "aspect": "Field",
@@ -13,7 +13,7 @@
   "role": "Field Astra",
   "predecessor": "0ad137",
   "ancestor": "0ad137",
-  "profileSha256": "a1b46aee0983ac704296bb845609f50bf418654ef3e365977ab482dbcf9a0cfb",
+  "profileSha256": "ea4786b78c50ec44dc57cd752cb6ad1b8840991c44a6e4042071b5c39d81578a",
   "sourceAudit": {
     "reviewedAt": "2026-09-23T19:27:00Z",
     "newestApplicableVision": [
@@ -62,7 +62,7 @@
     },
     {
       "path": "field/0ad137/log.md",
-      "sha256": "fd053a57a7cce4f19b1ba32057a72072ef20b1bfb6d9630aef3c0409fe6f0b89"
+      "sha256": "6a8e72dc0323f9be806286d9aac6d31af418ac37e23b747b66364a84cd264252"
     },
     {
       "path": "field/0ad137/vision/flowAnatomyAndOpusPeers.md",
@@ -89,8 +89,8 @@
       "sha256": "ad24dab51e7bce2798e6e0c6a40de5cd97a3c7a0eca56a547968dac6727d5fd1"
     }
   ],
-  "sourceManifestSha256": "69822c633850bec03355e5d12fe09ab5cafa1900357dfa75ff5f21dce85d073b",
-  "firstPromptSha256": "d2e4dc36d76db7fd937a0e73e441d2c91e3ad5dc1b3d89d671b31f7d8bb5e7d5",
+  "sourceManifestSha256": "a566c41e9cb55ed2237fbbb47d84730d386a47f661feb01ff575e54ec23b47d4",
+  "firstPromptSha256": "f7c10914cfac58bb160f4da6010a6841c523cfcf707191e0590f0412ebd20f04",
   "safety": {
     "receiptOnlyFirstTurn": true,
     "activationAfterNativeContextReceiptOnly": true,

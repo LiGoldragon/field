@@ -6,7 +6,7 @@
   "predecessor": "0ad137",
   "ancestor": "0ad137",
   "fresh": false,
-  "flowRoot": "field",
+  "flowRoot": "/git/github.com/LiGoldragon/field",
   "skills": [
     "spirit", "main-flow", "field", "refresh", "psyche", "psyche-acquisition",
     "behavior", "correction", "vocabulary", "testing", "testing-datom-messaging",
