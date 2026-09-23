@@ -13,21 +13,42 @@
   "role": "Field Astra",
   "predecessor": "0ad137",
   "ancestor": "0ad137",
-  "profileSha256": "768f65dfd13083085a5bf61076e9de0eb93f286aca6e0c983cbe59b56277466e",
+  "profileSha256": "a1b46aee0983ac704296bb845609f50bf418654ef3e365977ab482dbcf9a0cfb",
   "sourceAudit": {
-    "reviewedAt": "2026-09-23T16:49:13Z",
+    "reviewedAt": "2026-09-23T19:27:00Z",
     "newestApplicableVision": [
       "field/0ad137/vision/flowAnatomyAndOpusPeers.md",
       "field/0ad137/vision/aspectStatus.md",
-      "field/0ad137/vision/mainFlowAddressing.md"
+      "field/0ad137/vision/mainFlowAddressing.md",
+      "field/0ad137/vision/prometheusConnection.md",
+      "field/0ad137/vision/stackRecovery.md",
+      "field/0ad137/reports/recovery-status.md"
     ]
   },
   "requiredSkillNames": [
-    "spirit", "main-flow", "field", "refresh", "psyche", "psyche-acquisition",
-    "behavior", "correction", "vocabulary", "testing", "testing-datom-messaging",
-    "testing-flow-titles", "testing-generated-projection", "datom", "subflow",
-    "edit-coordination", "orchestrate", "flow-evidence", "prompt-crafting",
-    "codex-harness", "herdr", "messaging", "flow-communication",
+    "spirit",
+    "main-flow",
+    "field",
+    "refresh",
+    "psyche",
+    "psyche-acquisition",
+    "behavior",
+    "correction",
+    "vocabulary",
+    "testing",
+    "testing-datom-messaging",
+    "testing-flow-titles",
+    "testing-generated-projection",
+    "datom",
+    "subflow",
+    "edit-coordination",
+    "orchestrate",
+    "flow-evidence",
+    "prompt-crafting",
+    "codex-harness",
+    "herdr",
+    "messaging",
+    "flow-communication",
     "operational-layer-communication"
   ],
   "requiredMainFlow": {
@@ -35,14 +56,41 @@
     "path": "/home/li/primary/.agents/skills/main-flow/SKILL.md"
   },
   "sources": [
-    { "path": "field/0ad137/refresh-handoff.md", "sha256": "2bf9cac16c3f28a1becb6124db0c0b878b334792851285d42d1bd2b48533e206" },
-    { "path": "field/0ad137/log.md", "sha256": "4482f6ecb9fdc9c44c2f77c2e237076a8810e1a43cf7feda8240031f41b799c1" },
-    { "path": "field/0ad137/vision/flowAnatomyAndOpusPeers.md", "sha256": "03202150a87385b62d6c6c25a5b0d33735209d3f58b3cb275b7631660932cefb" },
-    { "path": "field/0ad137/vision/aspectStatus.md", "sha256": "a00b885fa9eb4f64c6312c45c5c74e8a6229784f21f07a6d0c2e83c4ae7c1fe8" },
-    { "path": "field/0ad137/vision/mainFlowAddressing.md", "sha256": "14b9f3c89a9ee87e0de9d95b9c48c459d2ed7751c57d5e9ef2bf7fd2a9b9cb69" }
+    {
+      "path": "field/0ad137/refresh-handoff.md",
+      "sha256": "8f2c5958ab06d8cb7071321bf7d783c0d6733df4858dcbbd1b012836777d1b57"
+    },
+    {
+      "path": "field/0ad137/log.md",
+      "sha256": "fd053a57a7cce4f19b1ba32057a72072ef20b1bfb6d9630aef3c0409fe6f0b89"
+    },
+    {
+      "path": "field/0ad137/vision/flowAnatomyAndOpusPeers.md",
+      "sha256": "03202150a87385b62d6c6c25a5b0d33735209d3f58b3cb275b7631660932cefb"
+    },
+    {
+      "path": "field/0ad137/vision/aspectStatus.md",
+      "sha256": "a00b885fa9eb4f64c6312c45c5c74e8a6229784f21f07a6d0c2e83c4ae7c1fe8"
+    },
+    {
+      "path": "field/0ad137/vision/mainFlowAddressing.md",
+      "sha256": "14b9f3c89a9ee87e0de9d95b9c48c459d2ed7751c57d5e9ef2bf7fd2a9b9cb69"
+    },
+    {
+      "path": "field/0ad137/vision/prometheusConnection.md",
+      "sha256": "3cd2a7cd22b4e928bcc5fb0bd5edd271cb11794bbcd6e2a37f552f46d18272a0"
+    },
+    {
+      "path": "field/0ad137/vision/stackRecovery.md",
+      "sha256": "28c0187b32b7c557fcf2beda3160dcbdd5b184957e354930bd6ca742d98c3f82"
+    },
+    {
+      "path": "field/0ad137/reports/recovery-status.md",
+      "sha256": "ad24dab51e7bce2798e6e0c6a40de5cd97a3c7a0eca56a547968dac6727d5fd1"
+    }
   ],
-  "sourceManifestSha256": "c4b84874d374e79d11b2ed68c35e26909d094b4abe209570331fd76eead513d1",
-  "firstPromptSha256": "489236d5e96ff39befaa481237fcb4a9f32313906a6bf804e1682c286eff1b9d",
+  "sourceManifestSha256": "69822c633850bec03355e5d12fe09ab5cafa1900357dfa75ff5f21dce85d073b",
+  "firstPromptSha256": "d2e4dc36d76db7fd937a0e73e441d2c91e3ad5dc1b3d89d671b31f7d8bb5e7d5",
   "safety": {
     "receiptOnlyFirstTurn": true,
     "activationAfterNativeContextReceiptOnly": true,
