@@ -47,9 +47,11 @@ skill records before resource creation.
 or refresh continuation. It contains the exact native thread UUID, Herdr
 session/pane/terminal, HM binding, and expected process identity. A name,
 pane, PID, or remote registration alone is insufficient. The known recipe
-includes Mind Astra `4b0f60`, Herdr `messaging-build/w11:p1`, terminal
-`term_65c2b7a716fd85b`; these are witnessed example inputs for validation,
-not hardcoded defaults or a claim that the target is still live.
+includes the current Mind predecessor `47764b` (Flow predecessor `4b0f60`),
+native thread `01a0cfb8-108c-76a0-901e-f4847764b62a`, Herdr
+`messaging-build/w11:p1`, and terminal `term_65c2b7a716fd85d`; these are
+witnessed example inputs for validation, not hardcoded defaults or a claim
+that the target is still live.
 
 ## Create and refresh protocol
 
