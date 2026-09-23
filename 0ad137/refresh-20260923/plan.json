@@ -1,0 +1,53 @@
+{
+  "version": 2,
+  "seat": "field-astra-of-0ad137",
+  "cwd": "/home/li/primary",
+  "claimRoot": "field",
+  "provisionalTitle": "Field High (claim pending)",
+  "canonicalRole": {
+    "aspect": "Field",
+    "power": "High"
+  },
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "role": "Field Astra",
+  "predecessor": "0ad137",
+  "ancestor": "0ad137",
+  "profileSha256": "768f65dfd13083085a5bf61076e9de0eb93f286aca6e0c983cbe59b56277466e",
+  "sourceAudit": {
+    "reviewedAt": "2026-09-23T16:49:13Z",
+    "newestApplicableVision": [
+      "field/0ad137/vision/flowAnatomyAndOpusPeers.md",
+      "field/0ad137/vision/aspectStatus.md",
+      "field/0ad137/vision/mainFlowAddressing.md"
+    ]
+  },
+  "requiredSkillNames": [
+    "spirit", "main-flow", "field", "refresh", "psyche", "psyche-acquisition",
+    "behavior", "correction", "vocabulary", "testing", "testing-datom-messaging",
+    "testing-flow-titles", "testing-generated-projection", "datom", "subflow",
+    "edit-coordination", "orchestrate", "flow-evidence", "prompt-crafting",
+    "codex-harness", "herdr", "messaging", "flow-communication",
+    "operational-layer-communication"
+  ],
+  "requiredMainFlow": {
+    "name": "main-flow",
+    "path": "/home/li/primary/.agents/skills/main-flow/SKILL.md"
+  },
+  "sources": [
+    { "path": "field/0ad137/refresh-handoff.md", "sha256": "2bf9cac16c3f28a1becb6124db0c0b878b334792851285d42d1bd2b48533e206" },
+    { "path": "field/0ad137/log.md", "sha256": "4482f6ecb9fdc9c44c2f77c2e237076a8810e1a43cf7feda8240031f41b799c1" },
+    { "path": "field/0ad137/vision/flowAnatomyAndOpusPeers.md", "sha256": "03202150a87385b62d6c6c25a5b0d33735209d3f58b3cb275b7631660932cefb" },
+    { "path": "field/0ad137/vision/aspectStatus.md", "sha256": "a00b885fa9eb4f64c6312c45c5c74e8a6229784f21f07a6d0c2e83c4ae7c1fe8" },
+    { "path": "field/0ad137/vision/mainFlowAddressing.md", "sha256": "14b9f3c89a9ee87e0de9d95b9c48c459d2ed7751c57d5e9ef2bf7fd2a9b9cb69" }
+  ],
+  "sourceManifestSha256": "c4b84874d374e79d11b2ed68c35e26909d094b4abe209570331fd76eead513d1",
+  "firstPromptSha256": "489236d5e96ff39befaa481237fcb4a9f32313906a6bf804e1682c286eff1b9d",
+  "safety": {
+    "receiptOnlyFirstTurn": true,
+    "activationAfterNativeContextReceiptOnly": true,
+    "noImplicitPredecessorRetirement": true,
+    "registrationAfterReadinessOnly": true,
+    "readyRequiresExpandedNativeMainFlow": true
+  }
+}
