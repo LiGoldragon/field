@@ -1,0 +1,36 @@
+{
+  "name": "mind-astra-of-4b0f60",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "role": "Mind Astra",
+  "predecessor": "4b0f60",
+  "ancestor": "4b0f60",
+  "fresh": false,
+  "flowRoot": "field",
+  "skills": [
+    "spirit", "main-flow", "refresh", "psyche", "psyche-acquisition", "behavior",
+    "correction", "vocabulary", "testing", "testing-datom-messaging",
+    "testing-flow-titles", "testing-generated-projection", "datom", "subflow",
+    "edit-coordination", "orchestrate", "flow-evidence", "prompt-crafting",
+    "codex-harness", "herdr", "messaging", "flow-communication",
+    "operational-layer-communication"
+  ],
+  "sourceManifest": [
+    "field/0ad137/refresh-20260923/mind-high-source-packet.md",
+    "field/0ad137/vision/stackRecovery.md",
+    "field/0ad137/vision/prometheusConnection.md",
+    "field/0ad137/vision/flowAnatomyAndOpusPeers.md",
+    "flows/4b0f60/reports/network-nexus-refresh-handoff.md",
+    "flows/4b0f60/reports/mega-network-diagnosis-mission.md",
+    "flows/4b0f60/reports/flow-nexus-main-replacement-contract.md",
+    "flows/4b0f60/reports/flow-anatomy-flashbook-source.md"
+  ],
+  "sourceAudit": {
+    "reviewedAt": "2026-09-23T19:19:59Z",
+    "newestApplicableVision": [
+      "field/0ad137/vision/stackRecovery.md",
+      "field/0ad137/vision/prometheusConnection.md",
+      "field/0ad137/vision/flowAnatomyAndOpusPeers.md"
+    ]
+  }
+}

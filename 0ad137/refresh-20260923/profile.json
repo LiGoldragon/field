@@ -20,14 +20,18 @@
     "field/0ad137/log.md",
     "field/0ad137/vision/flowAnatomyAndOpusPeers.md",
     "field/0ad137/vision/aspectStatus.md",
-    "field/0ad137/vision/mainFlowAddressing.md"
+    "field/0ad137/vision/mainFlowAddressing.md",
+    "field/0ad137/vision/prometheusConnection.md",
+    "field/0ad137/vision/stackRecovery.md"
   ],
   "sourceAudit": {
-    "reviewedAt": "2026-09-23T16:49:13Z",
+    "reviewedAt": "2026-09-23T19:19:59Z",
     "newestApplicableVision": [
       "field/0ad137/vision/flowAnatomyAndOpusPeers.md",
       "field/0ad137/vision/aspectStatus.md",
-      "field/0ad137/vision/mainFlowAddressing.md"
+      "field/0ad137/vision/mainFlowAddressing.md",
+      "field/0ad137/vision/prometheusConnection.md",
+      "field/0ad137/vision/stackRecovery.md"
     ]
   }
 }
