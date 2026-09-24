@@ -48,3 +48,20 @@ Fresh user-supplied eb7bae route: native 01a0cefc-9744-73f3-8dfb-4e0eb7bae957, d
 - Direct user-delivered owner receipts from eb7bae and 9ddcbc, plus the fresh eb7bae route correction, in Field 9e735b's native transcript on 2026-09-24.
 - Delegated recovery_evidence read of durableNetworkRefresh.md at 34fe6c8899684de4f892142d4357a3ca3d67895b and its read-only process-incarnation inspection.
 - Medium native transcript comparison: Message attempts at lines 12690 and 12737; Flow initial remote check at lines 12773–12776.
+
+## Roll-forward deployment — 2026-09-24
+
+The living explicitly removed the rollback-path and pre-deployment cross-process acceptance holds. Field directed the sole native executor eb7bae, with 9ddcbc composing/checking source, to deploy green Flow 4560453644c095d97d09390819a22e213850986c, Message a8c6a924d5d04fbfcbf0a7e2e1b145076d327a53 and the Home writer fix from 9a85262ae34c41bf6d82a6c927e0b3c24e2a52c0. Lifecycle v3 is follow-on work. No further approval round is required for this authorized baseline deployment.
+
+Owner-observed source agreement: Home 904185761771308172d18c1ee8f6ca4e2b37a1d7 pins the exact baseline packages; CriomOS 90702b6e9aa3aa9b82b4f17c5f2bd566d0abc030 pins that Home. 9ddcbc adopted the sole packet and released its pin lock 5022; it reported the consumer check passed locally after remote cache timeout. A retired-Meaning rejection printed during the test was its expected negative case, not a failed derivation; an interim worker failure interpretation was corrected to all recipients.
+
+Canonical pair chosen against the current installed consumer, without a Lojix downgrade: Lojix c4bba4fa12408c39ff745b0773468cd32a74403f uses Horizon 40d04d2504fee619e9b2b2564b8a769a3a9d6049. Goldragon 2bd1d107421f3ec1afdd72c5daa65fc060876455 materialized the matching canonical artifact /nix/store/q7n3ccf1anqr3q90qpwaxmwlsl8bp1j0-horizon-definition on Prometheus without fallback. These are executor-reported receipts observed by the coordination worker, not independent builds by Field High. This baseline pair is not proof of the follow-on USB-gateway schema/deployment.
+
+The canonical request first failed with Rejected.FlakeReferenceMalformed (deployment 28), because it used the retired slash-revision reference. Correcting only that reference to the supported immutable ?rev= form produced DeployAccepted.{ 29 {698 698} }. Query.ByDeployment.{29} recorded CriomOS 90702b6e and Building at ledger 711. An actual Lojix Nix-evaluation worker was observed. This is admission and active work, not completed build or activation.
+
+Still owed: terminal request/journal result and realized closure; independent persistent profile and running unit/ExecStart/PID/socket; post-deployment live ResolveRecipient and Message-send results. Each result or failure is to be relayed to Psyche High 836818 and Psyche Medium d8df70. Store paths alone are not deployment proof.
+
+### Sources for the roll-forward checkpoint
+
+- Direct living-word relays from Psyche High 836818 in this native transcript, including canonical-pair decision authority.
+- Native eb7bae/9ddcbc pane and transcript results returned by recovery_evidence coordination worker; its Herdr relays to Psyche were submission-grade unless separately witnessed.
