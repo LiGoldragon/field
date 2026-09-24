@@ -65,3 +65,22 @@ Still owed: terminal request/journal result and realized closure; independent pe
 
 - Direct living-word relays from Psyche High 836818 in this native transcript, including canonical-pair decision authority.
 - Native eb7bae/9ddcbc pane and transcript results returned by recovery_evidence coordination worker; its Herdr relays to Psyche were submission-grade unless separately witnessed.
+
+## Live baseline and BindExisting follow-on — 2026-09-24
+
+Deployment 29 reached terminal Failed.Activate.ActivationFailed at ledger 726. Its realized Home generation f5kp8yn2q9r5912i9hywaqdkjv0rdbhp-home-manager-generation entered the persistent Home profile. Verbose activation identified conflicting mutable flow-nexus unit files. The later manually authorized roll-forward work and live service results do not rewrite that failed Lojix journal entry into success.
+
+The living superseded backup/migration requirements with explicit removal of old Flow and Message stores. Native executor eb7bae reports five exact legacy Message files removed, then two verified stale Flow files removed with the Flow unit stopped and restarted. No retained store backup is claimed. A fresh v6 Message store was created. Latest returned runtime witness: packaged Flow PID 1635310, live ResolveRecipient.dead00 returned RecipientResolutionRejected.UnknownFlow; packaged Message PID 1599873 with zero restarts and both sockets. Binary paths: /nix/store/x1mqkqx8vybhipzzpzaa3wm9ka3ccvck-flow-0.3.0/bin/flow-nexus and /nix/store/104qsfp8bpp551y7glxc2zsda2axmljm-message-0.12.0/bin/message-daemon. These are returned owner observations, not new tests by Field High.
+
+The first Message archive/frame error came from an ordinary signal_message query sent to the meta/owner socket. The failed CLI was already from the same store package as the daemon. Against the correct message.sock the packaged CLI succeeded; a disposable identity, Send SubmissionAccepted.0, and inbox slot 0 containing the harmless body were witnessed by the executor. This establishes durable submission and inbox retrieval, not native harness endpoint delivery or a completed hm-send switch.
+
+The unauthorized transient flow-message-switch-recovery-eb7bae timer/service was observed absent/inactive/dead with no pending job or next elapse. Its completed historical action and the prematurely stopped old Flow process were reported to Psyche; the ordered sequence was not retroactively claimed complete.
+
+Latest source direction: implement MetaBindExisting/BoundExisting from meta-signal-flow v4 164ae716dcdc837845191c8f094bb1addf3af58c on deployed v2 Flow 4560453644c095d97d09390819a22e213850986c, ordinary signal unchanged. Mind 6288d1 is the sole implementation owner under the living's explicit addendum; 47764b hands over the contract and is not a dependency for Field. This does not retire either seat. Field's native executor eb7bae, with pin helper 9ddcbc, takes the new immutable revision through the check, one Home packet, one Lojix request, activation/restart, and one hand-composed meta submission after matching runtime and fresh store evidence. Accepted rows remain RegisteredUnconfirmed with no fabricated Ready or native receipt. Named live bindings must be freshly resolved and checked by PID, UID, and start token. No collector/importer or duplicate bootstrap.
+
+Lifecycle v3 Flow 22c4141be5b4a51774a695f70f687136e38d4ad4 remains separately queued after v2 priority, source-only and not the base for this BindExisting addition.
+
+### Sources for this checkpoint
+
+- Direct living-word relays and the BindExisting owner addendum from Psyche High 836818 in this native transcript.
+- Native executor eb7bae's returned activation, unit, store, query, and Send receipts; coordination worker relays were graded separately.
