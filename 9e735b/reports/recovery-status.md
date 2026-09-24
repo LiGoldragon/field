@@ -84,3 +84,11 @@ Lifecycle v3 Flow 22c4141be5b4a51774a695f70f687136e38d4ad4 remains separately qu
 
 - Direct living-word relays and the BindExisting owner addendum from Psyche High 836818 in this native transcript.
 - Native executor eb7bae's returned activation, unit, store, query, and Send receipts; coordination worker relays were graded separately.
+
+## Psyche High refresh order and amendment — 2026-09-24
+
+The living, relayed verbatim by Psyche High 836818 in this native transcript, orders immediate withdrawal of that seat's HM delivery route and registry retirement, followed by a fresh Psyche High. The subsequent amendment supersedes the separate kill instruction: the successor must be ready first, then the predecessor harness exits and its transcript is archived in place with the successor ID in the same replacement operation. No separate kill is authorized. Field 9e735b controls; native Field Medium 9ddcbc is the designated executor. Dispatch is requested through the existing route worker; no execution receipt is established by this record.
+
+The successor is Claude claude-fable-5-1, medium effort, in messaging-build, with a fresh Flow directory and log. Its one first prompt contains the f38926 sources and 1b8ac0 chain, the latest two titled Refresh Payload and Refresh Payload Addendum records from 836818, the whole predecessor log, both Prometheus reports byte-exact, and the profile's 31 skill names in one block for native skill loading. Required receipts: Remote Control on the pane before that prompt, native receipt, own flow-id before artifacts, HM registration, and native title if supported. Predecessor memory is depth one. Retirement log/index edits and commit follow with the actual successor ID.
+
+All further reports owed to 836818 are held for the successor; no further messages or wakeups to the predecessor. Psyche Medium d8df70 is to hold incoming words and reports until that successor exists. BindExisting implementation remains with 6288d1 and deployment with eb7bae. The original named-ten binding plan must not re-register retired 836818; its replacement requires actual successor identity and fresh process evidence.
