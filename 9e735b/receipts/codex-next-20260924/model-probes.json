@@ -1,0 +1,180 @@
+[
+  {
+    "model": "gpt-6-sol",
+    "threadId": "01a0d4c7-88f2-7de3-ab2f-3870bd8cfd8d",
+    "turnId": "01a0d4c7-8924-7c33-b31d-b0a57d409cdb",
+    "status": "inProgress",
+    "receipt": {
+      "thread": {
+        "id": "01a0d4c7-88f2-7de3-ab2f-3870bd8cfd8d",
+        "environments": [
+          {
+            "environmentId": "local",
+            "cwd": "/home/li/primary",
+            "runtimeWorkspaceRoots": [
+              "/home/li/primary"
+            ]
+          }
+        ],
+        "extra": null,
+        "sessionId": "01a0d4c7-88f2-7de3-ab2f-3870bd8cfd8d",
+        "forkedFromId": null,
+        "parentThreadId": null,
+        "preview": "This is a bounded model connectivity test, not a main Flow launch. Do not use tools, claim an identity, or change files. Reply exactly: NEXT_MODEL_OK",
+        "ephemeral": false,
+        "section": null,
+        "sectionEnteredAt": null,
+        "projectId": null,
+        "historyMode": "paginated",
+        "modelProvider": "openai",
+        "model": "gpt-6-sol",
+        "reasoningEffort": "medium",
+        "createdAt": 1790276241,
+        "updatedAt": 1790276244,
+        "recencyAt": 1790276241,
+        "status": {
+          "type": "idle"
+        },
+        "path": "/home/li/.codex-next/sessions/2026/09/24/rollout-2026-09-24T12-57-21-01a0d4c7-88f2-7de3-ab2f-3870bd8cfd8d.jsonl",
+        "cwd": "/home/li/primary",
+        "cliVersion": "0.158.0-alpha.9",
+        "originator": "native-seat-launch",
+        "source": "vscode",
+        "canAcceptDirectInput": true,
+        "threadSource": null,
+        "agentNickname": null,
+        "agentRole": null,
+        "gitInfo": {
+          "sha": "a2ba69357708508ff259a57c6310cc8e7b88ae76",
+          "branch": null,
+          "originUrl": "git@github.com:LiGoldragon/primary.git"
+        },
+        "name": null,
+        "daybreakEnabled": null,
+        "turns": [
+          {
+            "id": "01a0d4c7-8924-7c33-b31d-b0a57d409cdb",
+            "items": [
+              {
+                "type": "userMessage",
+                "id": "01a0d4c7-8f45-7f83-9155-294e9e7623ee",
+                "clientId": null,
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "This is a bounded model connectivity test, not a main Flow launch. Do not use tools, claim an identity, or change files. Reply exactly: NEXT_MODEL_OK",
+                    "text_elements": []
+                  }
+                ]
+              },
+              {
+                "type": "agentMessage",
+                "id": "msg_003957e9bf7f9b4c016ab57294af3087d1963f590182abeb33",
+                "text": "NEXT_MODEL_OK",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "full",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1790276241,
+            "completedAt": 1790276244,
+            "durationMs": 3205
+          }
+        ]
+      }
+    }
+  },
+  {
+    "model": "gpt-6-luna",
+    "threadId": "01a0d4c7-8933-73f0-93d0-fe0dfba40686",
+    "turnId": "01a0d4c7-8968-79a2-8dd6-5119622b91e0",
+    "status": "inProgress",
+    "receipt": {
+      "thread": {
+        "id": "01a0d4c7-8933-73f0-93d0-fe0dfba40686",
+        "environments": [
+          {
+            "environmentId": "local",
+            "cwd": "/home/li/primary",
+            "runtimeWorkspaceRoots": [
+              "/home/li/primary"
+            ]
+          }
+        ],
+        "extra": null,
+        "sessionId": "01a0d4c7-8933-73f0-93d0-fe0dfba40686",
+        "forkedFromId": null,
+        "parentThreadId": null,
+        "preview": "This is a bounded model connectivity test, not a main Flow launch. Do not use tools, claim an identity, or change files. Reply exactly: NEXT_MODEL_OK",
+        "ephemeral": false,
+        "section": null,
+        "sectionEnteredAt": null,
+        "projectId": null,
+        "historyMode": "paginated",
+        "modelProvider": "openai",
+        "model": "gpt-6-luna",
+        "reasoningEffort": "medium",
+        "createdAt": 1790276241,
+        "updatedAt": 1790276258,
+        "recencyAt": 1790276241,
+        "status": {
+          "type": "idle"
+        },
+        "path": "/home/li/.codex-next/sessions/2026/09/24/rollout-2026-09-24T12-57-21-01a0d4c7-8933-73f0-93d0-fe0dfba40686.jsonl",
+        "cwd": "/home/li/primary",
+        "cliVersion": "0.158.0-alpha.9",
+        "originator": "native-seat-launch",
+        "source": "vscode",
+        "canAcceptDirectInput": true,
+        "threadSource": null,
+        "agentNickname": null,
+        "agentRole": null,
+        "gitInfo": {
+          "sha": "a2ba69357708508ff259a57c6310cc8e7b88ae76",
+          "branch": null,
+          "originUrl": "git@github.com:LiGoldragon/primary.git"
+        },
+        "name": null,
+        "daybreakEnabled": null,
+        "turns": [
+          {
+            "id": "01a0d4c7-8968-79a2-8dd6-5119622b91e0",
+            "items": [
+              {
+                "type": "userMessage",
+                "id": "01a0d4c7-933b-7bd0-8f97-e50ad336c51e",
+                "clientId": null,
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "This is a bounded model connectivity test, not a main Flow launch. Do not use tools, claim an identity, or change files. Reply exactly: NEXT_MODEL_OK",
+                    "text_elements": []
+                  }
+                ]
+              },
+              {
+                "type": "agentMessage",
+                "id": "msg_09362604269b5146016ab572a19c0487d1b2f6b578a519f772",
+                "text": "NEXT_MODEL_OK",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "full",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1790276241,
+            "completedAt": 1790276258,
+            "durationMs": 16433
+          }
+        ]
+      }
+    }
+  }
+]

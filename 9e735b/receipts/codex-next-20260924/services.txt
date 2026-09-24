@@ -1,0 +1,11 @@
+Id=codex-remote-control.service
+ActiveState=active
+FragmentPath=/home/li/.config/systemd/user/codex-remote-control.service
+MainPID=1553993
+ExecStart={ path=/nix/store/wdj0sc69r4n9is1idfb32vcx5739ijkh-codex-0.153.4/bin/codex ; argv[]=/nix/store/wdj0sc69r4n9is1idfb32vcx5739ijkh-codex-0.153.4/bin/codex app-server --remote-control --listen unix:// ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }
+
+Id=codex-remote-control-next.service
+ActiveState=active
+FragmentPath=/home/li/.config/systemd/user/codex-remote-control-next.service
+MainPID=1814561
+ExecStart={ path=/nix/store/6x3r4igysq93rbpijyzxsx8v17w5i2yc-codex-next-0.158.0-alpha.9/bin/codex ; argv[]=/nix/store/6x3r4igysq93rbpijyzxsx8v17w5i2yc-codex-next-0.158.0-alpha.9/bin/codex app-server --remote-control --listen unix:///home/li/.codex-next/app-server-control/app-server-control.sock ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }
