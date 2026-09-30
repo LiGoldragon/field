@@ -10,7 +10,7 @@ Prometheus and Zeus each had an active Bird user manager, but its private bus co
 
 ## What is known
 
-Prometheus has one confirmed stateful network poller: `router-wan-lease-recovery.timer`, with a two-minute inactive interval and 15-second accuracy. Its one-shot recovery can affect WAN DHCP configuration, so its side effect is recorded rather than softened into observation.
+Prometheus has one confirmed stateful network poller: `router-wan-lease-recovery.timer`, with a two-minute inactive interval and 15-second accuracy. Its one-shot recovery can affect WAN DHCP configuration, so its side effect is recorded rather than softened into observation. The inspected authored source is `CriomOS/modules/nixos/router/default.nix:421-429` plus `CriomOS/modules/nixos/router/wan-lease-recovery.sh:5-16`; local working-copy revision `fe8ebf3d` identifies the inspected source only and is not an inferred deployed revision.
 
 All three live-witnessed hosts have `fwupd-refresh.timer`: hourly, randomized by up to one hour, and backed by `fwupdmgr refresh`. It refreshes firmware metadata.
 
@@ -25,7 +25,7 @@ Two inspected authored mechanisms are intentionally recorded as `AuthoredSourceO
 - `tailnet-enroll.service` retries after 30 seconds on failure if a projected node is a Tailnet client. The inspected source is `CriomOS/modules/nixos/network/tailscale.nix`; the working-copy revision inspected was `fe8ebf3d`, which is not evidence of deployment.
 - The active-network helper permits one Wi-Fi `iw` current-link query per five seconds while Wi-Fi is active; NetworkManager signals drive the surrounding updates. The inspected source is `CriomOS-home/modules/home/profiles/min/noctalia-plugins/active-network/active_network_helper.py`; the working-copy revision inspected was `19bd2cf9`, which is not evidence of deployment.
 
-Field census, checkup-shadow, research, and heartbeat timers are also source-conditional opt-ins. Their source declares five-minute census, thirty-minute checkup/research/heartbeat, and heartbeat path triggers. No live deployment is inferred. The Field source itself excludes the heartbeat from its read-only readiness invocation because it is lifecycle-mutating.
+Core checkup, Field Monitor 98eb43, Field census, checkup-shadow, research, and heartbeat timers are source-conditional opt-ins. Their source declares core-checkup every thirty minutes, Field Monitor 98eb43 and census every five minutes, checkup-shadow/research/heartbeat every thirty minutes, and heartbeat path triggers. No live deployment is inferred. The Field source itself excludes the heartbeat from its read-only readiness invocation because it is lifecycle-mutating.
 
 ## Health exception and unknowns
 
@@ -42,4 +42,5 @@ An owner should refresh a row after a bounded source inspection or live witness,
 - Goldragon authored roster: `goldragon/cluster-definition.datom`.
 - Field live bounded witnesses: flow `1bc255`, 2026-09-30 11:20–11:28 America/Mexico_City.
 - Corrected observer source: CriomOS `6485b64eaf328273d44b718d4c11da86b7554edd`; transient handover revision `36f36da145278619e7293f641a04920cae0f69d2`.
-- Inspected non-deployed source paths and working-copy revisions are identified in the JSON rows.
+- Router WAN source: `CriomOS/modules/nixos/router/default.nix:421-429` and `CriomOS/modules/nixos/router/wan-lease-recovery.sh:5-16`, inspected working-copy revision `fe8ebf3d` only.
+- Field monitoring source: `CriomOS-home/modules/home/profiles/min/field-monitoring.nix:184-221,226-310,318-335` and `field-luna-heartbeat.nix:18-45`; inspected non-deployed paths and working-copy revisions are identified in the JSON rows.
